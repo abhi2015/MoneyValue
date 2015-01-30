@@ -1,5 +1,5 @@
 #Class takes value of money in rupees, paise or a combination of both and prints the final amount and also performs addition.
-# add nil, maintain consisten
+
 class Money
 
 	attr_reader :rupee, :paise
@@ -24,8 +24,10 @@ class Money
 		"#{val_rupee} rupees and #{val_paise} paise"
 	end
 	
-  def addMoney(moneyNew)
-		@rupee + moneyNew.rupee + 0.01 * (@paise + moneyNew.paise)
+  def add_money(moneyNew)
+
+  	Money.new(@rupee + moneyNew.rupee,@paise + moneyNew.paise)
+		
 	end
 
 end
