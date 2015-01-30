@@ -10,20 +10,19 @@ attr_reader :rupee, :paise
 	end
 
 	def self.new_rupee(rupee)
-		self.new(rupee,0)
+		self.new(rupee, 0)
 	end
 
 	def self.new_paise(paise)
-		self.new(0,paise)
+		self.new(0, paise)
 	end
 
 	def viewMoney
 		@rupee + (0.01 * @paise)
 	end
 	
-
-	def addMoney(rupee_new,paise_new)
-
-		self.rupee + rupee_new + 0.01 * (self.paise + paise_new)
+  def addMoney(moneyNew)
+		self.rupee + moneyNew.rupee + 0.01 * (self.paise + moneyNew.paise)
 	end
+
 end
