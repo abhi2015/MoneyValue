@@ -6,8 +6,6 @@ describe Money do
   let(:money2) {Money.new_rupee(10)}
   let(:money3) {Money.new_paise(900)}
 
-
-
   it "takes the value as a combination of rupees and paise" do
     expect(money1.viewMoney).to eq(19.00)
   end
@@ -21,7 +19,7 @@ describe Money do
   end
 
   it "adds value to the existing amount" do
-    expect(money1.addMoney(10,10)).to eq(29.10)
+    expect(money1.addMoney(money2)).to eq(29.00)
   end
 
 end
