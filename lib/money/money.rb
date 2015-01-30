@@ -1,10 +1,10 @@
-#Class takes value of money in rupees, paise or a combination of both and prints the final amount
-
+#Class takes value of money in rupees, paise or a combination of both and prints the final amount and also performs addition.
+# add nil, maintain consisten
 class Money
 
-attr_reader :rupee, :paise
+	attr_reader :rupee, :paise
 	
-	def initialize(rupee,paise)
+	def initialize(rupee, paise)
 		@rupee = rupee
 		@paise = paise
 	end
@@ -17,12 +17,15 @@ attr_reader :rupee, :paise
 		self.new(0, paise)
 	end
 
-	def viewMoney
-		@rupee + (0.01 * @paise)
+	def view_money
+		val = @rupee + (0.01 * @paise)
+		val_rupee = val.to_i
+		val_paise = (val.modulo(1).round(2) * 100).to_i
+		"#{val_rupee} rupees and #{val_paise} paise"
 	end
 	
   def addMoney(moneyNew)
-		self.rupee + moneyNew.rupee + 0.01 * (self.paise + moneyNew.paise)
+		@rupee + moneyNew.rupee + 0.01 * (@paise + moneyNew.paise)
 	end
 
 end
