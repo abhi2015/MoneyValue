@@ -19,7 +19,7 @@ describe Money do
   end
 
   it "adds value to the existing amount" do
-    expect(money1.addMoney(money2)).to eq(29.10)
+    expect((money1.add_money(money2)).view_money).to eq("29 rupees and 10 paise")
   end
 
 end
