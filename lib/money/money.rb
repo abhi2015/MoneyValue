@@ -1,12 +1,15 @@
 #Class takes value of money in rupees, paise or a combination of both and prints the final amount and also performs addition.
 
-class Money
+class Money 
 
-	attr_reader :rupee, :paise
+	attr_reader :rupee, :paise, :tot_paise
+	include Comparable
+	
 	
 	def initialize(rupee, paise)
 		@rupee = rupee
 		@paise = paise
+		@tot_paise = rupee * 100 + paise
 	end
 
 	def self.new_rupee(rupee)
@@ -43,5 +46,14 @@ class Money
 		@rupee == money_new.rupee
 		@paise == money_new.paise
 	end
+
+	def sort(money_array)
+		money_array.sort! { |money1, money2|  money1.tot_paise <=> money2.tot_paise }
+	end
+
+	def <=>(money1)
+		@tot_paise <=> money1.tot_paise
+	end
+
 
 end
