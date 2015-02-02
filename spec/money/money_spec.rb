@@ -7,6 +7,8 @@ describe Money do
   let(:money3) {Money.new_paise(900)}
   let(:money4) {Money.new(0,-910)}
   let(:money5) {Money.new(0.00,-910)}
+  let(:money_array) {[Money.new(70,20), Money.new(30,40), Money.new(50,60)]}
+  let(:money_sorted_aray) {[Money.new(30,40), Money.new(50,60), Money.new(70,20)]}
 
   it "takes the value as a combination of rupees and paise" do
     expect(money1.to_s).to eq("19 rupees and 10 paise")
@@ -46,7 +48,7 @@ describe Money do
     expect(money1).to eq(money3)
   end
 
-  it "checks symmetricity" do
+  it "checks symmetricity for addition" do
     expect(money1 + money2).to eq(money2 + money1)
   end
 
@@ -56,6 +58,11 @@ describe Money do
 
   it "checks type" do
     expect(money5).to eq(money4)
+  end
+
+  it "sorts an array of money objects" do
+    expect(money_array.sort).to eq(money_sorted_aray)
+
   end
 
 end
